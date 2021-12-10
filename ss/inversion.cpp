@@ -48,11 +48,7 @@ int countInversion(vector <int> &ary,int s,int e)
         return 0;
     }
     int mid=(s+e)/2;
-    int a=countInversion(ary,s,mid);
-    int b=countInversion(ary,mid+1,e);
-    int c=crossInversions(ary,s,e);
-
-    return (a+b+c);
+    return (countInversion(ary,s,mid)+countInversion(ary,mid+1,e)+crossInversions(ary,s,e));
 
 
 }
