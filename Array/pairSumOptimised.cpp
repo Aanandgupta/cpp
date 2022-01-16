@@ -24,8 +24,8 @@ vector<int> towSum(vector<int> s,int num)
     
 int main()
 {
-    vector<int> sum={10,5,2,3,-6,9,11};
-    vector<int> ind=towSum(sum,11);
+    vector<int> sum={10,5,2,3,-6,9,10,-6,11};
+    vector<int> ind=towSum(sum,4);
     cout << ind[0] << ind[1];
     return 0;
 }
