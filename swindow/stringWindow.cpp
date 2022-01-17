@@ -6,8 +6,8 @@ using namespace std;
 
 int main()
 {
-    string s("helloelo");
-    string p("elo");
+    string s("hello");
+    string p("el");
     int np=p.size(),ns=s.size(),i=0,j=0,len=0,start=0,windowSize=0,lenSoFar=10000,startIdx=-1;
     vector <int> SF(256,0);
     vector <int> PF(256,0);

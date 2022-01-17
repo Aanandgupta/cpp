@@ -6,7 +6,7 @@ using namespace std;
 
 int main()
 {
-    string s("prateekbhaiyx");
+    string s("prateeekbhaiyx");
     int n=s.size(),i=0,j=0,len=0;
     vector <int> freq(26,0);
     vector <int> ans(2,0);
@@ -23,6 +23,7 @@ int main()
             len=j-i+1;
             }
             i=freq[s[j]-'a'];
+            freq[s[j]-'a']=j+1;
         }
         else{
             freq[s[j]-'a']=j+1;
