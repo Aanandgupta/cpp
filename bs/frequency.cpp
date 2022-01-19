@@ -5,8 +5,8 @@ using namespace std;
 
 int main()
 {
-    vector <int> ary{2,2,2,2,3,4,5,6,7,7,7};
-    int n=2,i=0,j=ary.size()-1,mid=0,lower=0,upper=0;
+    vector <int> ary{2,2,2,2,3,4,4,4,4,4,5,6,7,7,7};
+    int n=4,i=0,j=ary.size()-1,mid=0,lower=0,upper=0;
     while(i<=j)
     {
         mid=(i+j)/2;
@@ -17,6 +17,7 @@ int main()
         }
         else if(ary[mid]<n)
         {
+            
             i=mid+1;
         }
         else{

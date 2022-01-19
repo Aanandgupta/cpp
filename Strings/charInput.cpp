@@ -14,7 +14,6 @@ char * mystrtok(char *s,char delim)
     return NULL;
     }
     char *token=new char[strlen(s)+1];
-    cout << s1[i] <<"de"<<endl;
     for(;s1[i]!='\0';i++)
     {
         // cout << s1[i] << "dekhp" << endl;
@@ -23,8 +22,9 @@ char * mystrtok(char *s,char delim)
             token[i]=s1[i];
         }
         else{
+            cout << "count";
             token[i]='\0';
-            s1=s1+i+1;
+            s1=s1+i+2;
             return token;
         }
     }
@@ -58,13 +58,16 @@ int main()
     char s[1000];
     cin.getline(s,1000);
     char *tok=mystrtok(s,' ');
-    while(tok!=NULL)
-    {
         cout << tok << endl;
         tok=mystrtok(NULL,' ');
-        cout << "vjv";
+        cout << tok << endl;
+        // tok=mystrtok(NULL,' ');
 
-    }
+    // while(tok!=NULL)
+    // {
+    //     cout << "vjv";
+
+    // }
 
     return 0;
 }
