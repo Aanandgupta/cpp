@@ -6,7 +6,7 @@ using namespace std;
 
 int main()
 {
-    string s("hello");
+    string s("heolloel");
     string p("el");
     int np=p.size(),ns=s.size(),i=0,j=0,len=0,start=0,windowSize=0,lenSoFar=10000,startIdx=-1;
     vector <int> SF(256,0);
@@ -47,5 +47,13 @@ int main()
         cout << "notFound";
         cout << s.substr(startIdx,lenSoFar);
        
+    // if(len==t.size())
+    //     {
+    //         return final;
+    //     }
+    //     return "";
+
+
+
     return 0;
 }
