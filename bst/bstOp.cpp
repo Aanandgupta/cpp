@@ -48,7 +48,7 @@ void insert(bst * &head,int data)
         }
     }
 
-      if(prev->data > data)
+      if(data<prev->data)
         {
             prev->left=temp;
         }
