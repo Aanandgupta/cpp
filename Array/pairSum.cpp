@@ -17,12 +17,9 @@ vector<int> towSum(vector<int> s,int num)
         else
         i++;
         target=s[i]+s[j];
-
     }
     ind={s[i],s[j]};
     return ind;
-
-
 } 
 
 int main()

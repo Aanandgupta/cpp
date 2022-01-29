@@ -42,11 +42,9 @@ int main()
     }
     for(i=0;i<result.size();i++)
     {
-        for(
-            
-        )
+        for(int j=0;j<3;j++)
         {
-            cout << num;
+            cout << result[i][j];
         }
         cout << endl;
     }
