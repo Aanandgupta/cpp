@@ -54,4 +54,4 @@ int main()
     string s="abba";
     ob.Anagrams(s);
     return 0;
-}
+} 
