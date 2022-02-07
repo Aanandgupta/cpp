@@ -10,15 +10,15 @@ int main()
     while(j<n)
     {
         sum+=arr[j];
-        j+=1;
         while(sum>target && i<j)
         {
             sum-=arr[i];
             i+=1;
         }
         if(sum == target){
-             cout << i <<','<< j-1;
+             cout << i <<','<< j;
         }
+        j+=1;
     }
     return 0;
 }
