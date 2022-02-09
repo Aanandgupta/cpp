@@ -10,10 +10,6 @@ Code, Compile, Run and Debug online from anywhere in world.
 #include <vector>
 #include <string>
 using namespace std;
-
-
-
-
 void merge(vector <int> &aray,int s,int e)
 {
     int mid=s+(e-s)/2,i=s,k=0;
