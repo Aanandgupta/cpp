@@ -5,7 +5,7 @@ int main()
 {
     vector <int> ary{7,9,10,1,2,3,4,5,6};
     int i=0,j=ary.size()-1,mid=0,e=ary.size()-1,x=0;
-    int key=2;
+    int key=7;
     while(i<=j)
     {
         mid=(i+j)/2;
@@ -21,11 +21,11 @@ int main()
             if(ary[mid]<=key && key<=ary[e])
             {
                 // left
-                j=mid-1;
+                i=mid+1;
             }
             else{
                 //right
-                i=mid+1;
+                j=mid-1;
 
             }
         }
@@ -34,10 +34,10 @@ int main()
             if(ary[mid]>=key && ary[0]<=key)
             {
                 //right
-                i=mid+1;
+                j=mid-1;
             }
             else{
-                j=mid-1;
+                i=mid+1;
             }
         }
 

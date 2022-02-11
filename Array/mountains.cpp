@@ -3,28 +3,30 @@
 using namespace std;
 
 //given an array found width of max width moiuntain
-int main()
-{
-    vector<int> heights={5,6,1,2,3,4,5,4,3,2,0,1,2,3,-2,4};
-    int i=1,l=0,r=0,j=0,maxWidth=-1;
-    cout << heights.size();
-    while(i<heights.size()-1)
-    {
-        if(heights[i-1]<heights[i] && heights[i]>heights[i+1])
-        {
-            j=i+1;
-            maxWidth=max(maxWidth,j-l);
-            while(j+1 <heights.size() && heights[j]>heights[j+1])
-            {
-                j++;
-            }
-            maxWidth=max(maxWidth,j-l);
-            l=j;
-            i=j;
-        }
-        i++;
-    }
 
-    cout << maxWidth;
-    return 0;
-}
+  int longestMountain(vector<int>& arr) {
+        
+        int i=1,ans=0;
+        while(i<arr.size()-1)
+        {
+            if(arr[i-1]<arr[i] and arr[i]>arr[i+1])
+            {
+                int x=i,j=i;
+                while(x>0 and arr[x]>arr[x-1])
+                {
+                    x--;
+                }
+                while(j<arr.size()-1 and arr[j+1]<arr[j])
+                {
+                    j++;
+                }
+                ans=max(ans,j-x+1);
+                i=j+1;
+                    
+            }
+            else{
+                i++;
+            }
+        }
+        return ans;
+    }

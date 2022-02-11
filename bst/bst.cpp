@@ -100,8 +100,6 @@ int main()
     // bst *head=preOrder();
     bst *head=NULL;
     levelOrderBuild(head);
-    
     print(head);
-
     return 0;
 }

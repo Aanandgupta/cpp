@@ -26,22 +26,22 @@ int main()
     int n=5,b=2,i=0,j,mid;
     int min=arr[n-1]-arr[0];
     j=min;
-    mid=min;
+    int ans=-1;
     while(i<=j)
     {
         // cout << mid << endl;
+        mid=(i+j)/2;
         if(possible(arr,mid,b))
         {
-            min=mid;
+            ans=mid;
             i=mid+1;
         }
         else{
             j=mid-1;
         }
-        mid=(i+j)/2;
 
     }
-    cout << min;
+    cout << ans;
     
     return 0;
 }
