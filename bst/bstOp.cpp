@@ -16,6 +16,53 @@ class bst{
 };
 
 
+class LL{
+    public:
+    bst *head;
+    bst *tail;
+};
+
+
+LL convertToLL(bst *root)
+{
+    LL temp,left,right;
+    if(root==NULL)
+    {
+        temp.head=temp.tail=NULL;
+        return temp;
+    }
+    if(root->left==NULL && root->right==NULL)
+    {
+        temp.head=temp.tail=root;
+        return temp;
+    }
+    else if(root->left==NULL and root->right!=NULL){
+        right=convertToLL(root->right);
+        temp.head=root;
+        temp.tail=right.tail;
+        root->right=right.head;
+        return temp;
+    }
+    else if(root->right==NULL and root->left!=NULL)
+    {
+        left=convertToLL(root->left);
+        temp.head=left.head;
+        left.tail->right=root;
+        temp.tail=root;
+        return temp;
+    }
+    else{
+        LL  rightLL=convertToLL(root->right);
+        LL leftLL=convertToLL(root->left);
+        leftLL.tail->right=root;
+        root->right=rightLL.head;
+        temp.tail=rightLL.tail;
+        temp.head=leftLL.head;
+        return temp;
+    }
+
+}
+
 int height(bst *head)
 {
     if(head==NULL)
@@ -453,15 +500,15 @@ int main()
     // inorderSucc(head,6);
     // cout << endl;
     // inorderSucc(head,15);
-    a= diameter(head);
+    // a= diameter(head);
     // replaceSum(head);
     // print(head);
     // b=heightBalanced(head);
     // cout << b.second;
-    cout << a.first;
+    // cout << a.first;
     // a=maxSubsetSum(head);
     // printAtKlevel(head,2);
-    cout << endl;
+    // cout << endl;
     // printAtKLevelRec(head,2);
     // cout << max(a.first,a.second);
     // printAtDisKFromT(head,15,2);
@@ -475,5 +522,13 @@ int main()
     //     }
     //     cout << endl;
     // }
+    bst* temp=convertToLL(head).head;
+    cout<<temp->data;
+    // bst *temp1=temp.head;
+    while(temp!=NULL)
+    {
+        cout<<temp->data;
+        temp=temp->right;
+    }
     return 0;
 }

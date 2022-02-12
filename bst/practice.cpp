@@ -21,6 +21,54 @@ class linkList{
     bst *tail;
 };
 
+
+class LL{
+    public:
+    bst *head;
+    bst *tail;
+};
+
+
+LL convertToLL(bst *root)
+{
+    LL temp,left,right;
+    if(root==NULL)
+    {
+        temp.head=temp.tail=NULL;
+        return temp;
+    }
+    if(root->left==NULL && root->right==NULL)
+    {
+        temp.head=temp.tail=root;
+        return temp;
+    }
+    else if(root->left==NULL and root->right!=NULL){
+        right=convertToLL(root->right);
+        temp.head=root;
+        temp.tail=right.tail;
+        root->right=right.head;
+        return temp;
+    }
+    else if(root->right==NULL and root->left!=NULL)
+    {
+        left=convertToLL(root->left);
+        temp.head=left.head;
+        left.tail->right=root;
+        temp.tail=root;
+        return temp;
+    }
+    else{
+        LL  rightLL=convertToLL(root->right);
+        LL leftLL=convertToLL(root->left);
+        leftLL.tail->right=root;
+        root->right=rightLL.head;
+        temp.tail=rightLL.tail;
+        temp.head=leftLL.head;
+        return temp;
+    }
+
+}
+
 bool search(bst *head,int key)
 {
     if(head==NULL)
@@ -204,7 +252,6 @@ linkList  treeToList(bst *head)
 
 linkList  treeToDoublyList(bst *head)
 {
-    cout << "cych";
     linkList ll;
     if(head==NULL)
     {
@@ -311,12 +358,15 @@ int inorderSuc(bst *head,int data,int suc)
         return inorderSuc(head->right,data,suc);
 
     }
+
 }
+
+
 
 
 int main()
 {
-    vector <int> arr={12,90,1,5,7,8,9};
+    vector <int> arr={12,90,1,5,7,8,9,89};
     // bst *head=build(arr,0,arr.size()-1);
     // cout << closest(head,5);
      bst *head=NULL;
@@ -325,21 +375,21 @@ int main()
          insert(head,arr[i]);
      }
     inorder(head);
-    // cout << endl;
-    // bst* start=treeToDoublyList(head).tail; //not working
-    // while(start!=NULL)
-    // {
-    //     cout << start->data << " ,";
-    //     start=start->left;
-    // }
-    cout << inorderSuc(head,11,-1);
-    cout << inorderSuc(head,12,-1);
-    cout << inorderSuc(head,91,-1);
-    cout << inorderSuc(head,1,-1);
-    cout << inorderSuc(head,5,-1);
-    cout << inorderSuc(head,6,-1);
-    cout << inorderSuc(head,7,-1);
-    cout << inorderSuc(head,8,-1);
-    cout << inorderSuc(head,9,-1);
+    cout << endl;
+    bst* start=convertToLL(head).head; //not working
+    while(start!=NULL)
+    {
+        cout << start->data << " ,";
+        start=start->right;
+    }
+    // cout << inorderSuc(head,11,-1);
+    // cout << inorderSuc(head,12,-1);
+    // cout << inorderSuc(head,91,-1);
+    // cout << inorderSuc(head,1,-1);
+    // cout << inorderSuc(head,5,-1);
+    // cout << inorderSuc(head,6,-1);
+    // cout << inorderSuc(head,7,-1);
+    // cout << inorderSuc(head,8,-1);
+    // cout << inorderSuc(head,9,-1);
     return 0;
 }
