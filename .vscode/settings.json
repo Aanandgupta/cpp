@@ -9,6 +9,7 @@
         "string": "cpp",
         "vector": "cpp",
         "array": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "bitset": "cpp"
     }
 }
