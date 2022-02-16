@@ -1,5 +1,5 @@
 
-
+//insertion searching O(len) suffix insertion(len^2)
 #include <bits/stdc++.h>
 using namespace std;
 

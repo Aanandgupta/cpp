@@ -129,6 +129,33 @@ class graph{
         }
         
     }
+
+
+    void dfsIterative(int source)
+    {
+        stack <int> store;
+        vector <bool> visited(vertex,false);
+        int top;
+        store.push(source);
+        while(!store.empty())
+        {
+            top=store.top();
+            store.pop();
+            if(!visited[top])
+            {
+                cout<<top;
+                visited[top]=true;
+            }
+            for(int i:l[top])
+            {
+                if(!visited[i])
+                {
+                    store.push(i);
+                }
+            }
+        }
+    }
+    //complexity=O(v+E) dfs,bfs
     // void dfs(int source,vector <bool> &visited)
     // {
     //     int temp;
@@ -202,26 +229,32 @@ class graph{
 
 int main()
 {
-    graph g(6);
-    vector <bool> visited(6,false);
-    vector <bool> source(6,false);
-    vector <int> parent(6,-1);
+    graph g(5);
+    g.addEdge(1, 0);
+    g.addEdge(0, 2);
+    g.addEdge(2, 1);
+    g.addEdge(0, 3);
+    g.addEdge(1, 4);
+    g.dfsIterative(0);
+    // vector <bool> visited(6,false);
+    // vector <bool> source(6,false);
+    // vector <int> parent(6,-1);
     // g.addEdge(0,1,false);
     // g.addEdge(1,2);
-    g.addEdge(1,0,false);
-    g.addEdge(2,1,false);
+    // g.addEdge(1,0,false);
+    // g.addEdge(2,1,false);
     // g.addEdge(1,2,false);
-    g.addEdge(0,2,false);
+    // g.addEdge(0,2,false);
     // g.addEdge(2,3,false);
     // g.print();
     // g.bfs(3,2);
-    if(g.detectDirectedCycle(0,visited,source))
-    {
-        cout << "cycle detected";
-    }
-    else{
-        cout<< "no cycle found";
-    }
+    // if(g.detectDirectedCycle(0,visited,source))
+    // {
+    //     cout << "cycle detected";
+    // }
+    // else{
+    //     cout<< "no cycle found";
+    // }
     return 0;
 }
 ///for integer values
