@@ -1,9 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-#include <iostream>
-#include <stack>
-using namespace std;
  
 // Data structure to store a binary tree node
 struct Node
