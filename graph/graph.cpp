@@ -47,25 +47,27 @@ class graph{
             if(arr[i]==false)
             {
                 j.push(i);
-                arr[i]=true;
                 while(!j.empty())
                 {
                     cur=j.front();
-                    cout << cur;
-                    for(auto x:l[cur])
+                    j.pop();
+                    if(!arr[cur])
                     {
-                        if(arr[x]==false)
+
+                        arr[cur]=true;
+                        cout << cur;
+                        for(auto x:l[cur])
                         {
-                            j.push(x);
-                            arr[x]=true;
+                            if(arr[x]==false)
+                            {
+                                j.push(x);
+                                arr[x]=true;
+                            }
                         }
                     }
-                    j.pop();
                 }
             }
-
         }
-
     }
     void bfs(int source,int dest)
     {
@@ -144,6 +146,7 @@ class graph{
             if(!visited[top])
             {
                 cout<<top;
+                //ecause in case of cycle
                 visited[top]=true;
             }
             for(int i:l[top])
@@ -156,21 +159,7 @@ class graph{
         }
     }
     //complexity=O(v+E) dfs,bfs
-    // void dfs(int source,vector <bool> &visited)
-    // {
-    //     int temp;
-    //     visited[source]=true;
-    //     cout<<source;
-    //     for(int i:l[source])
-    //     {
-    //         if(visited[i]==false)
-    //         {
-    //             dfs(i,visited);
-    //         }
-    //     }
-        
-    // }
-
+  
 
 
     bool detectCycle(int source,vector <bool> &visited,int parent)

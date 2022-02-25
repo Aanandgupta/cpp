@@ -28,8 +28,7 @@ class graph
         vector <int> distance(vertex,INT_MAX);
         set <pair<int,int>> weights;
         weights.insert({0,start});
-    distance[start]=0;
-
+        distance[start]=0;
         while(!weights.empty())
         {
             auto l1= weights.begin();
