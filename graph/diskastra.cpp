@@ -29,6 +29,7 @@ class graph
         set <pair<int,int>> weights;
         weights.insert({0,start});
         distance[start]=0;
+        //can use priority queue
         while(!weights.empty())
         {
             auto l1= weights.begin();
