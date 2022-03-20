@@ -8,6 +8,7 @@ class node{
 
         node(int data)
         {
+            
             this->data=data;
             next=NULL;
         }
