@@ -21,6 +21,8 @@ void inorderIterative(Node* root)
     // create an empty stack
     stack<Node*> stack;
  
+    
+    
     // start from the root node (set current node to the root node)
     Node* curr = root;
  
