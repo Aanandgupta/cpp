@@ -4,27 +4,26 @@ using namespace std;
 int main()
 {
     vector<pair<int,int>> arr{{1,2},{2,0},{2,2},{2,3},{4,2}};
-    set <pair<int,int>> store(arr.begin(),arr.end());
-
+    unordered_map <int,int> x;
+    unordered_map <int,int> y;
 
     int ans=0;
-   for(int i=0;i<arr.size()-1;i++)
-   {
-       for(int j=i+1;j<arr.size();j++)
-       {
-           if(arr[j].first==arr[i].first or arr[j].second==arr[i].second)
-           {
-               continue;
-           }
-           if(store.find({arr[i].first,arr[j].second})!=store.end() || store.find({arr[j].first,arr[i].second})!=store.end())
-           {
-
-               ans+=1;
-           }
-
-       }
-   }
-
+    for(pair<int,int> i:arr)
+    {
+        if(x.find(i.first)==x.end())
+            x[i.first]=1;
+        else
+            x[i.first]++;
+        if(y.find(i.second)==y.end())
+            y[i.second]=1;
+        else
+            y[i.second]++;
+            // x[i.first]++;
+    }
+    for(pair<int,int> i:arr)
+    {
+        ans+=(x[i.first]-1)*(y[i.second]-1);
+    }
     cout << ans;
 
     return 0;

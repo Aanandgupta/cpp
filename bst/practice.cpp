@@ -335,7 +335,7 @@ int inorderSuc(bst *head,int data,int suc)
         return -1;
     }
     if(data==head->data)
-    {
+    {  
         if(head->right!=NULL)
         {
             bst *temp=head->right;
